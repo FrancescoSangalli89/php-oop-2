@@ -15,7 +15,6 @@
             } elseif ($this->energyRating == 'a+') {
                 $this->rent = round(($this->squareFootage * 250) / 12, 2);
             }
-            
         }
 
         public function getRent() {

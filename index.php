@@ -7,26 +7,44 @@ require_once __DIR__ . '/class/Sale.php';
 
 
 $carlo = new User ('carlo', 'bianchi', 'carlo@gmail.com');
-$carlo->setCategory('cliente');
+try {
+    $carlo->setCategory(23);
+} catch (Exception $e) {
+    echo "ERRORE: " . $e->getMessage();
+}
 $carlo->setAccess();
 $carlo->getAddress('Viale Borri', '112', 'Bergamo');
 var_dump($carlo);
 
 $mario = new EstateAgent ('mario', 'rossi', 'mario@gmail.com');
-$mario->setCategory('agente');
+try {
+    $mario->setCategory('agente');
+} catch (Exception $e) {
+    echo "ERRORE: " . $e->getMessage();
+}
+
 $mario->setAccess();
 $mario->getAddress('Via Rossini', '244', 'Roma');
 var_dump($mario);
 
 
 $casaInVendita = new Sale ('b', 'Villetta a schiera');
-$casaInVendita->setSquareFootage(300);
+try {
+    $casaInVendita->setSquareFootage('abc');
+} catch (Exception $e) {
+    echo "ERRORE: " . $e->getMessage();
+}
 $casaInVendita->setSalePrice();
 $casaInVendita->getAddress('viale Boccaccio', '12', 'Milano');
 var_dump($casaInVendita);
 
 $casaInAffitto = new Rent ('a+', 'Appartamento');
-$casaInAffitto->setSquareFootage(200);
+try {
+    $casaInAffitto->setSquareFootage(200);
+} catch (Exception $e) {
+    echo "ERRORE: " . $e->getMessage();
+}
+
 $casaInAffitto->setRent();
 $casaInAffitto->getAddress('Piazza Fontana', 'Brescia');
 var_dump($casaInAffitto);

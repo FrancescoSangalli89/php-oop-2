@@ -19,11 +19,16 @@
         }
 
         public function setCategory($category) {
-            $this->category = $category;
+            if (is_string($category) && strlen($category)> 5) {
 
-            if ($category !== 'cliente' && $category !== 'agente') {
-                echo '<h3>La categoria inserita non è valida</h3>';
+                $this->category = $category;
+                if ($category !== 'cliente' && $category !== 'agente') {
+                    echo '<h3>La categoria inserita non è valida</h3>';
+                }
+            } else {
+                throw new Exception("La categoria dev'essere una stringa e dev'essere maggiore di 5 caratteri");
             }
+            
         }
 
         public function setAccess() {

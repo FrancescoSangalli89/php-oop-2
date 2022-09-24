@@ -17,9 +17,10 @@
         }
 
         public function setSquareFootage($squareFootage) {
-            $this->squareFootage = $squareFootage;
-            if ($this->squareFootage <= 10) {
-                echo "<h3>La metratura dev'essere di almeno 10 metri</h3>";
+            if (is_numeric($squareFootage) && $squareFootage >= 10) {
+                $this->squareFootage = $squareFootage;
+            } else {
+                throw new Exception("La metratura dev'essere un numero e dev'esesre di almeno 10 metri");
             }
         }
     }

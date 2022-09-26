@@ -13,7 +13,7 @@ try {
     echo "ERRORE: " . $e->getMessage();
 }
 $carlo->setAccess();
-$carlo->getAddress('Viale Borri', '112', 'Bergamo');
+$carlo->setAddress('Viale Borri', '112', 'Bergamo');
 var_dump($carlo);
 
 $mario = new EstateAgent ('mario', 'rossi', 'mario@gmail.com');
@@ -24,7 +24,7 @@ try {
 }
 
 $mario->setAccess();
-$mario->getAddress('Via Rossini', '244', 'Roma');
+$mario->setAddress('Via Rossini', '244', 'Roma');
 var_dump($mario);
 
 
@@ -35,7 +35,7 @@ try {
     echo "ERRORE: " . $e->getMessage();
 }
 $casaInVendita->setSalePrice();
-$casaInVendita->getAddress('viale Boccaccio', '12', 'Milano');
+$casaInVendita->setAddress('viale Boccaccio', '12', 'Milano');
 var_dump($casaInVendita);
 
 $casaInAffitto = new Rent ('a+', 'Appartamento');
@@ -46,5 +46,5 @@ try {
 }
 
 $casaInAffitto->setRent();
-$casaInAffitto->getAddress('Piazza Fontana', 'Brescia');
+$casaInAffitto->setAddress('Piazza Fontana', 'Brescia');
 var_dump($casaInAffitto);
